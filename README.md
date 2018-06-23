@@ -1,5 +1,8 @@
 # 412-multi-agent-2
 
+## Note
+These files have all been pulled into one repository (as opposed to 3).  The launch files have not been edited to reflect these changes and will most likely need to be updated before they will run correctly.
+
 ## Prerequisites
 These instructions assume you are running the VM provided for the course [[LINK](https://www.dropbox.com/s/cdfkfk2px8u0u4h/cognitive-robotics-18-vm.ova?dl=0)]
 
