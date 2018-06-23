@@ -1,0 +1,20 @@
+<launch>
+    <!---->
+    <!-- 412-mutlig-agent-2 specific code-->
+    <!---->
+    <arg name="d_star" default="False"/>
+    <include file="$(find 412-multi-agent-2)/launch/single_agent.launch">
+      <arg name="robot" value="agent_1"/>
+      <arg name="ip" value="18.111.17.224"/>
+      <arg name="d_star" value="$(arg d_star)"/>
+    </include>
+    <include file="$(find 412-multi-agent-2)/launch/single_agent.launch">
+      <arg name="robot" value="agent_2"/>
+      <arg name="d_star" value="$(arg d_star)"/>
+    </include>
+    <include file="$(find 412-multi-agent-2)/launch/single_agent.launch">
+      <arg name="robot" value="agent_3"/>
+      <arg name="d_star" value="$(arg d_star)"/>
+    </include>
+
+</launch>

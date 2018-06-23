@@ -1,0 +1,26 @@
+<launch>
+    <arg name="robot"/>
+    <arg name="d_star" default="False"/>
+    <arg name="ip" default="localhost"/>
+
+    <machine name="$(arg robot)" address="$(arg ip)" env-loader="/opt/ros/kinetic/env.sh" user="pi" password="turtlebot"/>
+
+    <node ns="$(arg robot)" name="cbba" pkg="task_allocation" type="task_alloc.py" output="screen" clear_params="true">
+    </node>
+
+    <node ns="$(arg robot)" name="rvo" pkg="path_planning" type="rvo_node.py" output="screen" clear_params="true">
+    </node>
+
+    <node ns="$(arg robot)" name="glob_loc" pkg="path_planning" type="global_position.py" output="screen">
+    </node>
+
+    <node if="$(arg d_star)" ns="$(arg robot)" name="d_waypoint" pkg="path_planning" type="dlite_node.py" output="screen">
+    </node>
+
+    <node unless="$(arg d_star)" ns="$(arg robot)" name="a_waypoint" pkg="path_planning" type="planner_node" output="screen">
+    </node>
+
+    <!--node ns="$(arg robot)" name="low_level_control" pkg="412-multi-agent-2" type="go_to_point.py" output="screen">
+    </node-->
+
+</launch>
